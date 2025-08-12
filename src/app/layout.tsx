@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(url),
+  metadataBase: new URL(DATA.url),
   title: {
     default: DATA.name,
     template: `%s | ${DATA.name}`,
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `$${DATA.url}/og-image.png`,
+        url: `${DATA.url}/og-image.png`,
         width: 1200,
         height: 630,
         alt: `${DATA.name}`,
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: `${url}/og-image.png`,
+        url: `${DATA.url}/og-image.png`,
         width: 1200,
         height: 630,
         alt: `${DATA.name}`,
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: `${url}`,
+    canonical: `${DATA.url}`,
   },
   verification: {
     google: "",
@@ -77,6 +78,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+      <Script 
+          src="https://analytics.ahrefs.com/analytics.js" 
+          data-key="5f7Rg8Ah6cnDHNNjqlNGRQ"
+          async
+          />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
