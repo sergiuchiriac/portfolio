@@ -11,6 +11,46 @@ import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
+function JourneyProgress() {
+  const { journey } = DATA as any;
+  const current: number = journey?.current ?? 0;
+  const target: number = journey?.target ?? 1;
+  const percent = Math.min(100, Math.max(0, (current / target) * 100));
+
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: journey?.currency ?? "USD",
+      maximumFractionDigits: 0,
+    }).format(value);
+
+  return (
+    <div className="rounded-xl border bg-card p-6">
+      <div className="flex items-baseline justify-between">
+        <h3 className="text-xl font-bold">{journey?.title ?? "My journey"}</h3>
+        <div className="text-base font-semibold">
+          <span className="text-purple-500 dark:text-purple-400">
+            {formatCurrency(current)}
+          </span>
+          <span className="text-muted-foreground"> / {formatCurrency(target)}</span>
+          {journey?.unit ? (
+            <span className="ml-1 text-muted-foreground">{journey.unit}</span>
+          ) : null}
+        </div>
+      </div>
+      <div className="mt-4 h-3 w-full rounded-full bg-muted">
+        <div
+          className="h-3 rounded-full bg-gradient-to-r from-purple-500 to-violet-400"
+          style={{ width: `${percent}%` }}
+        />
+      </div>
+      <div className="mt-3 text-right text-sm text-muted-foreground">
+        {percent.toFixed(1)}% complete
+      </div>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
@@ -48,6 +88,16 @@ export default function Page() {
             {DATA.summary}
           </Markdown>
         </BlurFade>
+      </section>
+      <section id="journey">
+        <div className="space-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
+            <h2 className="text-xl font-bold">My journey</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+            <JourneyProgress />
+          </BlurFade>
+        </div>
       </section>
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
@@ -152,24 +202,19 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="hackathons">
+      {/* <section id="hackathons">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  Hackathons
+                  Roadmap
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  I like building things
+                  My indie hacking journey
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  During my time in university, I attended{" "}
-                  {DATA.hackathons.length}+ hackathons. People from around the
-                  country would come together and build incredible things in 2-3
-                  days. It was eye-opening to see the endless possibilities
-                  brought to life by a group of motivated and passionate
-                  individuals.
+                  I&apos;ve been building products for the past 2 years. I&apos;ve made over $70K with my own products. I&apos;m always launching new products and experimenting with the newest tech. Watch my roadmap and future plans.
                 </p>
               </div>
             </div>
@@ -194,7 +239,7 @@ export default function Page() {
             </ul>
           </BlurFade>
         </div>
-      </section>
+      </section> */}
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
