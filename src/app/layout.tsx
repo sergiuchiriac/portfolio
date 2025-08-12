@@ -13,7 +13,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
+  metadataBase: new URL(url),
   title: {
     default: DATA.name,
     template: `%s | ${DATA.name}`,
@@ -26,6 +26,17 @@ export const metadata: Metadata = {
     siteName: `${DATA.name}`,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `$${DATA.url}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: `${DATA.name}`,
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.ico',
   },
   robots: {
     index: true,
@@ -41,6 +52,17 @@ export const metadata: Metadata = {
   twitter: {
     title: `${DATA.name}`,
     card: "summary_large_image",
+    images: [
+      {
+        url: `${url}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: `${DATA.name}`,
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${url}`,
   },
   verification: {
     google: "",
