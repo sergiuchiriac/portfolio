@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, BriefcaseIcon } from "lucide-react";
 
 export const DATA = {
   name: "Sergiu Chiriac",
@@ -39,7 +39,9 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/consulting", icon: BriefcaseIcon, label: "Consulting" },
+    { href: "/blog", icon: NotebookIcon, label: "Blog" }
+
   ],
   contact: {
     email: "hello@example.com",
@@ -68,10 +70,9 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "mailto:hello@sergiu.com",
+        url: "mailto:sergiuchiriacei@gmail.com",
         icon: Icons.email,
-
-        navbar: false,
+        navbar: true,
       },
     },
   },
@@ -675,4 +676,16 @@ export const DATA = {
       ],
     },
   ],
+  stripe: {
+    singleCall: {
+      priceId: process.env.NODE_ENV === 'production' 
+        ? process.env.STRIPE_SINGLE_CALL_PRICE_ID_PROD || "price_1RwNz8IrXdG4sJIRUumSHe59"
+        : "price_1RwNz8IrXdG4sJIRUumSHe59",
+    },
+    unlimitedCalls: {
+      priceId: process.env.NODE_ENV === 'production'
+        ? process.env.STRIPE_UNLIMITED_CALLS_PRICE_ID_PROD || "price_1RwO3pIrXdG4sJIRLzBaY4Ws"
+        : "price_1RwO3pIrXdG4sJIRLzBaY4Ws",
+    },
+  },
 } as const;

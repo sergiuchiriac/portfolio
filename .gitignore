@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz
 
 # testing
 /coverage
@@ -26,8 +25,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -35,3 +34,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Do not ignore anything in the app folder
+!app/
+!app/**
+!app/api/
+!app/api/**
+# Override global gitignore for Next.js files
+!**/route.ts
+!**/page.tsx
+!**/layout.tsx
+!**/loading.tsx
+!**/error.tsx
+!**/not-found.tsx
+!**/globals.css
+
+# Sitemap and robots.txt are now tracked for production deployment

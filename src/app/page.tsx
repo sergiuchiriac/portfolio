@@ -1,4 +1,4 @@
-import { HackathonCard } from "@/components/hackathon-card";
+
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -240,6 +240,33 @@ export default function Page() {
           </BlurFade>
         </div>
       </section> */}
+      <section id="consulting">
+        <div className="space-y-12 w-full py-12 rounded-xl border bg-card p-8">
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  Consulting
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Need help with your project?
+                </h2>
+                <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  I offer consulting services to help you build, scale, and optimize your web applications. From architecture design to performance optimization, I&apos;m here to help you succeed.
+                </p>
+                <div className="pt-4">
+                  <Link
+                    href="/consulting"
+                    className="inline-flex items-center justify-center rounded-md bg-foreground px-6 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  >
+                    Learn More
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
