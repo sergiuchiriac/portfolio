@@ -8,8 +8,50 @@ import {
 } from "@/components/consulting";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
 
 const BLUR_FADE_DELAY = 0.04;
+
+export const metadata: Metadata = {
+  title: "Consulting Services",
+  description: "Professional consulting services in software development, system architecture, and digital transformation. Expert guidance for your technical projects and business needs.",
+  keywords: [
+    "consulting",
+    "software development",
+    "system architecture", 
+    "digital transformation",
+    "technical guidance",
+    "business consulting",
+    "software consulting"
+  ],
+  openGraph: {
+    title: "Consulting Services | Sergio Chiriac",
+    description: "Professional consulting services in software development, system architecture, and digital transformation.",
+    type: "website",
+    url: "https://sergiuchiriac.com/consulting",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sergio Chiriac Consulting Services"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Consulting Services | Sergio Chiriac",
+    description: "Professional consulting services in software development, system architecture, and digital transformation.",
+    images: ["/og-image.png"]
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "https://sergiuchiriac.com/consulting",
+  },
+};
 
 export default function ConsultingPage() {
   return (
