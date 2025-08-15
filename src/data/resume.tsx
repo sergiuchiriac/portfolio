@@ -678,14 +678,10 @@ export const DATA = {
   ],
   stripe: {
     singleCall: {
-      priceId: process.env.NODE_ENV === 'production' 
-        ? process.env.STRIPE_SINGLE_CALL_PRICE_ID_PROD || "price_1RwNz8IrXdG4sJIRUumSHe59"
-        : "price_1RwNz8IrXdG4sJIRUumSHe59",
+      priceId: "price_1RwO1eIrXdG4sJIR0T29dhwy",
     },
     unlimitedCalls: {
-      priceId: process.env.NODE_ENV === 'production'
-        ? process.env.STRIPE_UNLIMITED_CALLS_PRICE_ID_PROD || "price_1RwO3pIrXdG4sJIRLzBaY4Ws"
-        : "price_1RwO3pIrXdG4sJIRLzBaY4Ws",
+      priceId: "price_1RwO4vIrXdG4sJIRvyLsJnds",
     },
   },
 } as const;
