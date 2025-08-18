@@ -75,6 +75,11 @@
     }
   }
 
+  /* Add rounded corners to images in prose content */
+  .prose img {
+    @apply rounded-lg;
+  }
+
   h3 code {
     @apply !text-lg md:!text-xl;
   }

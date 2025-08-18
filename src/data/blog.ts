@@ -42,9 +42,12 @@ export async function getPost(slug: string) {
   const filePath = path.join("content", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
-  const content = await markdownToHTML(rawContent);
+  
+  // Return both raw MDX content and HTML for flexibility
+  const htmlContent = await markdownToHTML(rawContent);
   return {
-    source: content,
+    source: htmlContent,
+    mdxContent: rawContent, // Add raw MDX content
     metadata,
     slug,
   };

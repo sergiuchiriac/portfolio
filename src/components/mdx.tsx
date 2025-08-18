@@ -59,11 +59,12 @@ function slugify(str: string) {
 }
 
 function createHeading(level: number) {
-  const Heading = ({ children }: { children: React.ReactNode }) => {
+  const Heading = (props: any) => {
+    const { children, ...rest } = props;
     let slug = slugify(children as string);
     return React.createElement(
       `h${level}`,
-      { id: slug },
+      { id: slug, ...rest },
       [
         React.createElement("a", {
           href: `#${slug}`,
